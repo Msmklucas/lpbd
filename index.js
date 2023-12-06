@@ -9,6 +9,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended :true}))
 app.use(cors())
 
+app.use((req, res, next) => {
+    if (req.url === '/') {
+      res.redirect('/computadores');
+    } else {
+      next();
+    }
+  });
+
 const getComputadores = (request, response) => {
     pool.query('SELECT * FROM computadores', (error, results) =>{
         if (error) {
