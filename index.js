@@ -125,7 +125,7 @@ const getUsuarios = (request, response) => {
     const updateUsuarios = (request, response) => {
         const { id, nome, computador_id } = request.body;
     
-        // Certifique-se de que computador_id seja um número inteiro válido
+        
         const parsedComputadorId = computador_id !== '' ? parseInt(computador_id, 10) : null;
     
         pool.query(
